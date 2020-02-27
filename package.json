@@ -1,0 +1,32 @@
+{
+  "name": "love-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ejekanshjain/love-calculator.git"
+  },
+  "keywords": [],
+  "author": "Ekansh Jain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ejekanshjain/love-calculator/issues"
+  },
+  "homepage": "https://github.com/ejekanshjain/love-calculator#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "nodemailer": "^6.4.3"
+  }
+}
