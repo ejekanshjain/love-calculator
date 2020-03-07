@@ -2,19 +2,90 @@
 
 <head>
     <title>Love Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        #love {
+            color: #ff0000;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                color: #2d3436;
+            }
+
+            20% {
+                color: #e84393;
+            }
+
+            40% {
+                color: #e74c3c;
+            }
+
+            60% {
+                color: #0984e3;
+            }
+
+            80% {
+                color: #2ecc71;
+            }
+
+            100% {
+                color: #2d3436;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="message">
-        <%= message %>
+    <div class="container">
+        <div class="row">
+            <h4 class="red-text text-lighten-1">
+                Love Calculator
+            </h4>
+        </div>
+        <div class="row teal-text">
+            <%= message %>
+        </div>
+        <div class="row">
+            <h6 class="grey-text text-darken-3">
+                Enter your email to get started
+            </h6>
+        </div>
+        <div class="row">
+            <form class="col s12 m8 offset-m2 l6 offset-l3" action="/" method="POST">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="email" name="email" id="email" class="validate" required>
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col 12">
+                        <button type="submit" class="waves-effect waves-light btn red lighten-2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row red-text text-darken-4">
+            <%= error %>
+        </div>
     </div>
-    <form action="/" method="POST">
-        <input type="email" name="email" id="email" required>
-        <button type="submit">Submit</button>
-    </form>
-    <div class="error">
-        <%= error %>
-    </div>
+    <footer class="center-align">
+        <p>Made with <span id="love">❤</span> by <a href="https://ejekanshjain.github.io">Ekansh</a></p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            M.AutoInit()
+        })
+    </script>
 </body>
 
 </html>

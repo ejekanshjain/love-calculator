@@ -2,16 +2,82 @@
 
 <head>
     <title>Love Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        #love {
+            color: #ff0000;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                color: #2d3436;
+            }
+
+            20% {
+                color: #e84393;
+            }
+
+            40% {
+                color: #e74c3c;
+            }
+
+            60% {
+                color: #0984e3;
+            }
+
+            80% {
+                color: #2ecc71;
+            }
+
+            100% {
+                color: #2d3436;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="err">
-        Your Custom Link is
+    <div class="container">
+        <div class="row">
+            <h4 class="red-text text-lighten-1">
+                Love Calculator
+            </h4>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="url" name="url" id="url" value="https://love-calculator123.herokuapp.com/<%= user %>"
+                    readonly>
+                <label for="url">Your Custom Link is</label>
+                <a class="waves-effect waves-light btn red lighten-2 copy-text">Copy</a>
+            </div>
+        </div>
+        <p class="flow-text">
+            Share with your friends & enjoy!
+        </p>
     </div>
-    <a href="<%= user %>"><%= user %></a>
-    <div>
-        Share with your friends!
-    </div>
+    <footer class="center-align">
+        <p>Made with <span id="love">❤</span> by <a href="https://ejekanshjain.github.io">Ekansh</a></p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            M.AutoInit()
+        })
+        $('.copy-text').click(e => {
+            e.preventDefault()
+            let copyText = $('#url')
+            copyText.select()
+            document.execCommand("copy")
+            M.toast({ html: 'Copied' })
+        })
+    </script>
 </body>
 
 </html>

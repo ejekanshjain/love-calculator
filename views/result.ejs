@@ -2,18 +2,75 @@
 
 <head>
     <title>Love Calculator - Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-color: #eee;
+        }
+
+        #love {
+            color: #ff0000;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                color: #2d3436;
+            }
+
+            20% {
+                color: #e84393;
+            }
+
+            40% {
+                color: #e74c3c;
+            }
+
+            60% {
+                color: #0984e3;
+            }
+
+            80% {
+                color: #2ecc71;
+            }
+
+            100% {
+                color: #2d3436;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div>
-        <%= name %>
+    <div class="container">
+        <div class="row">
+            <h4 class="red-text text-lighten-1">
+                Love Calculator Result
+            </h4>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="name" id="name" value="<%= name %>" readonly>
+                <label for="name">Name</label>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" name="crushname" id="crushname" value="<%= crushname %>" readonly>
+                <label for="crushname">Crush's Name</label>
+            </div>
+        </div>
+        <p class="flow-text grey-text text-darken-3">Your score is <%= value %>%</p>
     </div>
-    <div>
-        <%= crushname %>
-    </div>
-    <div>
-        <%= value %>
-    </div>
+    <footer class="center-align">
+        <p>Made with <span id="love">❤</span> by <a href="https://ejekanshjain.github.io">Ekansh</a></p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(() => {
+            M.AutoInit()
+        })
+    </script>
 </body>
 
 </html>
